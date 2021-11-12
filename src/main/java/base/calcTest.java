@@ -8,44 +8,47 @@ import org.testng.annotations.Test;
 public class calcTest extends base {
 
     @Test(priority = 1)
-    public void add() throws InterruptedException {
-        driver.findElement(By.id("com.android.calculator2:id/digit_7")).click();
+    public void addition() throws InterruptedException {
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_01")).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("com.android.calculator2:id/op_add")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_add")).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("com.android.calculator2:id/digit_8")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_07")).click();
         Thread.sleep(3000);
-        String result = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.android.calculator2:id/result']")).getText();
+        String result = driver.findElement(By.id("com.sec.android.app.popupcalculator:id/txtCalc_RealTimeResult")).getText();
 
-        Assert.assertEquals(result,"15");
+        Assert.assertEquals(result,"8");
     }
 
     @Test(priority = 2)
     public void subtract() throws InterruptedException {
-        driver.findElement(By.id("com.android.calculator2:id/digit_6")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_08")).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("com.android.calculator2:id/op_sub")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_sub")).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("com.android.calculator2:id/digit_5")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_07")).click();
         Thread.sleep(3000);
-        String result = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.android.calculator2:id/result']")).getText();
+        String result = driver.findElement(By.id("com.sec.android.app.popupcalculator:id/txtCalc_RealTimeResult")).getText();
 
         Assert.assertEquals(result,"1");
     }
 
     @Test(priority = 3)
-    public void division() throws InterruptedException {
-        driver.findElement(By.id("com.android.calculator2:id/digit_8")).click();
+    public void multiply() throws InterruptedException {
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_05")).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("com.android.calculator2:id/op_div")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_mul")).click();
         Thread.sleep(3000);
-        driver.findElement(By.id("com.android.calculator2:id/digit_6")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_06")).click();
         Thread.sleep(3000);
+        String result = driver.findElement(By.id("com.sec.android.app.popupcalculator:id/txtCalc_RealTimeResult")).getText();
+
+        Assert.assertEquals(result,"30");
     }
 
     @AfterMethod
     public void clickEquals() throws InterruptedException {
-        driver.findElement(By.id("com.android.calculator2:id/eq")).click();
+        driver.findElement(By.id("com.sec.android.app.popupcalculator:id/bt_equal")).click();
         Thread.sleep(3000);
     }
 }
